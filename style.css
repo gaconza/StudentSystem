@@ -1,0 +1,156 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.active {
+    font-weight: bold;
+}
+
+/* Container principal para o formulário */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilizando a caixa de login e registro */
+.login-box, .register-box {
+    width: 100%;
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    margin-top: 50px;
+}
+
+/* Alinhar os campos de input */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Botão de login e registro */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Link para registro */
+.register-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.register-link a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para erros */
+p {
+    font-size: 14px;
+    color: red;
+    text-align: center;
+}
+
+/* Mensagem sobre a senha (se necessário) */
+.password-info {
+    text-align: center;
+    font-size: 8px;
+    color: #888;
+    margin-top: 10px;
+}
+
+/* Estilos para a tabela do dashboard */
+.dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px auto;
+    font-family: Arial, sans-serif; /* Igual ao padrão de login e registro */
+}
+
+.dashboard-table thead {
+    background-color: #4CAF50; /* mesmo verde do botão de login */
+    color: #fff;
+}
+
+.dashboard-table th,
+.dashboard-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 14px; /* Igual ao input-group */
+}
+
+.dashboard-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.dashboard-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.dashboard-table button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.dashboard-table button:hover {
+    background-color: #45a049;
+}
+
+.dashboard-table button.delete-btn {
+    background-color: #f44336; /* Vermelho */
+}
+
+.dashboard-table button.delete-btn:hover {
+    background-color: #e53935;
+}
+
+
