@@ -3,7 +3,7 @@ include "controller/functions.php";
 include "partials/header.php";
 include "config/db.php";
 
-// Verificar se o usuário já está logado e redirecionar para o dashboard
+// Checks if the user is logged in and redirects to the dashboard
 if (isset($_SESSION['logged_in'])) {
     header("Location: dashboard.php");
     exit();
@@ -11,20 +11,20 @@ if (isset($_SESSION['logged_in'])) {
 
 $error = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Recuperar os dados do formulário com proteção contra SQL Injection
+    // Recover the data from the form with protection against SQL Injection
     $email = mysqli_real_escape_string($conn, $_POST['email']);
     $password = $_POST['password'];
 
-    // Consultar o banco de dados para verificar se o usuário existe
+    // Query the database to check if the user exists
     $sql = "SELECT * FROM users WHERE email='$email' LIMIT 1";
     $result = mysqli_query($conn, $sql);
 
-    // Verificar se a consulta retornou resultados
+    // Checks if the query returned results
     if ($result && mysqli_num_rows($result) === 1) {
         $user = mysqli_fetch_assoc($result);
-        // Verificar a senha
+
         if (password_verify($password, $user['password'])) {
-            // Sessão de login bem-sucedida
+            
             $_SESSION['logged_in'] = true;
             $_SESSION['email'] = $user['email'];
             header("Location: dashboard.php");
@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h2 style="text-align:center">Welcome to the Student System</h2>
     <p style="color:red"><?php echo $error; ?></p>
     
-    <!-- Caixa de Login -->
+    <!-- Login Box -->
     <div class="login-box">
         <form method="POST">
             <div class="input-group">

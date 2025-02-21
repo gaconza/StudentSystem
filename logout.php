@@ -1,14 +1,14 @@
 <?php
-// Inicia a sessão
+// Start the session
 session_start();
 
-// Destroi todas as variáveis de sessão
+// Destroy all session variables
 session_unset();
 
-// Destroi a sessão
+// Destroy the session
 session_destroy();
 
-// Redireciona para a página de login
+// Redirects to the login page
 header("Location: index.php");
 exit();
 ?>

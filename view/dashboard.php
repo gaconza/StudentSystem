@@ -13,7 +13,7 @@ include '../partials/header.php';
     <title>Dashboard</title>
     <link rel="stylesheet" href="/FS2/StudentSystem/style.css">
     <script>
-        // Função de confirmação para excluir
+        // Confirmation function for deletion
         function confirmDelete(studentID) {
             if (confirm("Are you sure you want to delete this student?")) {
                 window.location.href = "../controller/functions.php?delete_student_id=" + studentID;
@@ -25,7 +25,7 @@ include '../partials/header.php';
     <div class="container">
         <h2 style="text-align:center">Student Dashboard</h2>
         
-        <!-- Tabela de Estudantes -->
+        <!-- Student table -->
         <table class="dashboard-table">
             <thead>
                 <tr>
@@ -54,7 +54,7 @@ include '../partials/header.php';
                 }
                 ?>
                 
-                <!-- Formulário para adicionar um novo estudante -->
+                <!-- Form to add new student -->
                 <form action="../controller/functions.php" method="POST">
                     <tr>
                         <td><input type="text" name="studentID" required></td>

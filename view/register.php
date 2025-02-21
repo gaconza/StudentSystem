@@ -4,7 +4,7 @@ include "../partials/header.php";
 include "../config/db.php";
 
 
-// Verificar se o usuário já está logado e redirecionar para o dashboard
+// Checks if the user is logged in and redirects to the dashboard
 if (isset($_SESSION['logged_in'])) {
     header("Location: dashboard.php");
     exit();
@@ -13,35 +13,35 @@ if (isset($_SESSION['logged_in'])) {
 $error = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Recuperar os dados do formulário
+    // Recover the data from the form
     $username = $_POST["username"];
     $email = $_POST["email"];
     $password = $_POST["password"];
     $confirm_password = $_POST["confirm_password"];
 
-    // Primeiro, verificar se as senhas coincidem (validação local)
+    // First, checks if the password match (local validation)
     if ($password !== $confirm_password) {
         $error = "Passwords do not match.";
     } else {
-        // Se as senhas coincidirem, então vamos interagir com o banco de dados
-        // Protege contra SQL Injection (quando o BD estiver pronto)
+        
+        // Protect against SQL Injection
         $username = mysqli_real_escape_string($conn, $username);
         $email = mysqli_real_escape_string($conn, $email);
 
-        // Verifica se o email já existe no banco de dados
+        // Checks if the email already exists in the DB
         $checkEmailQuery = "SELECT * FROM users WHERE email='$email' LIMIT 1";
         $checkResult = mysqli_query($conn, $checkEmailQuery);
         if ($checkResult && mysqli_num_rows($checkResult) > 0) {
             $error = "Email already registered. Please use another one.";
         } else {
-            // Criptografar a senha
+            
             $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
-            // Inserir o novo usuário no banco de dados
+            // Insert a new user in the DB
             $sql = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$passwordHash')";
             
             if (mysqli_query($conn, $sql)) {
-                // Se o cadastro for bem-sucedido, redirecionar para o dashboard
+                
                 $_SESSION['logged_in'] = true;
                 $_SESSION['email'] = $email;
                 $_SESSION['username'] = $username;
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <h2 style="text-align:center">Register</h2>
     <p style="color:red"><?php echo $error; ?></p>
     
-    <!-- Caixa de Registro -->
+    <!-- Registration Box -->
     <div class="register-box">
         <form method="POST">
             <div class="input-group">
